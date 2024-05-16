@@ -1,3 +1,5 @@
 services:
   app:
-    image: hello-world
+    image: nginx
+    ports:
+      - "80:80"
