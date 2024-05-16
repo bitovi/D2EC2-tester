@@ -17,6 +17,11 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_SANDBOX }}
           aws_default_region: us-east-1
 
+          aws_r53_enable: true
+          aws_r53_domain_name: bitovi.com
+          aws_r53_sub_domain_name: d2ec2Test
+          aws_r53_create_sub_cert: true
+
           aws_elb_app_port: 80
 
           tf_stack_destroy: false
