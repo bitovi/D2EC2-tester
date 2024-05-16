@@ -6,9 +6,9 @@ on:
 jobs:
   EC2-Deploy:
     runs-on: ubuntu-latest
-    # environment:
-    #   name: "EC2"
-    #   url: ${{ steps.deploy.outputs.vm_url }}
+    environment:
+      name: ${{ github.ref_name }} # the branch name
+      url: ${{ steps.deploy.outputs.vm_url }}
     steps:
       - id: deploy
         uses: bitovi/github-actions-deploy-docker-to-ec2@v1.0.1
@@ -17,6 +17,6 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_SANDBOX }}
           aws_default_region: us-east-1
 
-          # aws_elb_app_port: 80
+          aws_elb_app_port: 80
 
-          tf_stack_destroy: true
+          tf_stack_destroy: false
